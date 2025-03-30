@@ -40,3 +40,13 @@ google-services.json
 
 # Jetpack Compose UI preview data (Optional, if you want to exclude preview data files)
 .compose_preview/
+
+# Ignore JAR files
+*.jar
+
+# Ignore Windows batch files
+*.bat
+
+# Ignore Gradle wrapper script
+gradlew
+gradlew.bat

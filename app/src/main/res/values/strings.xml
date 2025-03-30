@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Movie Discovery App</string>
+    <string name="similar_movies">Similar movies</string>
+    <string name="loading">Loading…</string>
+    <string name="no_movie_details_found">No movie details found</string>
+    <string name="movie_details">Movie Details</string>
+    <string name="movie_overview_title">Movie Overview</string>
+</resources>
