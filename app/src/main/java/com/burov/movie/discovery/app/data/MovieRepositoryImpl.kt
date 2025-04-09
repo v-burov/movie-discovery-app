@@ -70,7 +70,7 @@ internal class MovieRepositoryImpl(
                         title = movieEntity.title,
                         posterThumbnailUrl = movieEntity.posterThumbnailUrl,
                     )
-                }?: emptyList()
+                } ?: emptyList()
             }
     }
 
@@ -78,29 +78,29 @@ internal class MovieRepositoryImpl(
         return movieDao.getMovieWithSimilarMovies(movieId = movieId)
             .flowOn(Dispatchers.IO)
             .map { movieWithSimilarMovie ->
-            movieWithSimilarMovie?.similarMovies?.map { movieEntity ->
-                MovieItem(
-                    id = movieEntity.id,
-                    title = movieEntity.title,
-                    posterThumbnailUrl = movieEntity.posterThumbnailUrl,
-                )
-            }?: emptyList()
-        }
+                movieWithSimilarMovie?.similarMovies?.map { movieEntity ->
+                    MovieItem(
+                        id = movieEntity.id,
+                        title = movieEntity.title,
+                        posterThumbnailUrl = movieEntity.posterThumbnailUrl,
+                    )
+                } ?: emptyList()
+            }
     }
 
     override fun observeMovieDetails(movieId: String): Flow<MovieDetails?> =
         movieDao.getMovie(movieId)
             .flowOn(Dispatchers.IO)
             .mapNotNull { movieEntity ->
-            movieEntity?.let {
-                MovieDetails(
-                    id = it.id,
-                    title = it.title,
-                    overview = it.overview,
-                    posterUrl = it.posterUrl
-                )
+                movieEntity?.let {
+                    MovieDetails(
+                        id = it.id,
+                        title = it.title,
+                        overview = it.overview,
+                        posterUrl = it.posterUrl
+                    )
+                }
             }
-        }
 
     private fun String.getPosterUrl(): String = "${BuildConfig.POSTER_BASE_PATH}$this.jpg"
 
